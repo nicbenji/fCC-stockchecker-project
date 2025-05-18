@@ -4,7 +4,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet');
-const crypto = require('crypto');
 
 const apiRoutes = require('./routes/api.js');
 const fccTestingRoutes = require('./routes/fcctesting.js');
@@ -37,12 +36,6 @@ app.route('/')
     .get(function(req, res) {
         res.sendFile(process.cwd() + '/views/index.html');
     });
-
-function hashIpAddr(ipAddr) {
-    return crypto.createHash('sha256')
-        .update(ipAddr + process.env.IP_PEPPER)
-        .digest('hex');
-}
 
 //For FCC testing purposes
 fccTestingRoutes(app);
@@ -79,4 +72,3 @@ const listener = app.listen(process.env.PORT || 3000, async function() {
 });
 
 module.exports = app; //for testing
-exports.hashIpAddr = hashIpAddr;
