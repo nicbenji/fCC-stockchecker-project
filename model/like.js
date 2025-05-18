@@ -13,6 +13,6 @@ const stockLikesSchema = new mongoose.Schema({
     }
 });
 
-const StockLikes = mongoose.Model('stockLikes', stockLikesSchema);
+const StockLikes = mongoose.model('stockLikes', stockLikesSchema);
 
 exports.StockLikes = StockLikes;
