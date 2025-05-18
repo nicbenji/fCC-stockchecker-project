@@ -22,8 +22,9 @@ app.use(helmet({
     },
     contentSecurityPolicy: {
         directives: {
-            defaultSrc: ["'self'", 'https://cdn.freecodecamp.org'],
-            scriptSrc: ["'self'"]
+            defaultSrc: ["'self'"],
+            scriptSrc: ["'self'"],
+            styleSrc: ["'self'"]
         }
     }
 }));
