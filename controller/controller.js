@@ -28,11 +28,6 @@ async function getStockLikes(stockSymbol, isLiked, ipAddrHash) {
             { $addToSet: { likerIpAddrHashes: ipAddrHash } },
             { upsert: true }
         );
-    } else {
-        await StockLikes.updateOne(
-            { stockSymbol },
-            { upsert: true }
-        );
     }
 
     const doc = await StockLikes.findOne({ stockSymbol })

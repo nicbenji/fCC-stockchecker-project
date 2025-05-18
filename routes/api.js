@@ -1,13 +1,7 @@
 'use strict';
 
 const controller = require("../controller/controller");
-const crypto = require('crypto');
-
-function hashIpAddr(ipAddr) {
-    return crypto.createHash('sha256')
-        .update(ipAddr + process.env.IP_PEPPER)
-        .digest('hex');
-}
+const { hashIpAddr } = require("../server");
 
 module.exports = function(app) {
 
